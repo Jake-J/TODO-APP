@@ -1,0 +1,37 @@
+@media screen and (max-device-width: 860px){
+    body {
+        .mainWrapper{
+            width:100%;
+            margin: 0 auto;
+        }
+        h1{
+            font-size: 1.5em;
+        }
+        div.tasksList{
+            ul li {
+                width:20%;
+                i.delete{
+                    transform: translateX(4px);
+                }
+                i.open{
+                padding-right: 17px;
+                }
+            }
+        }
+        div.tableWrap{
+            overflow: hidden;
+            table{
+                width:460px;
+                  td.stepIcons{
+                      width:91px !important;
+                  }
+                  td.stepIcons i {
+                      padding-left:15px;
+                  }
+            }
+        }
+        .hint span , div.taskName span{
+            display: none;
+        }    
+    }   
+}

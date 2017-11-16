@@ -32,7 +32,7 @@ module: {
     ]
 }, 
 devServer: {
-    contentBase: __dirname,
+    contentBase: DistDir,
     compress:true,
     port:9000,
     stats: "errors-only",

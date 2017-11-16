@@ -1,0 +1,24 @@
+@media screen and (max-device-width: 520px){
+    body {
+        h1{
+            font-size: 1.5em;
+        }
+        div.tasksList{
+            ul li {
+                width:25% !important;
+            }
+        }
+        div.tableWrap{
+            table{
+                width:100% !important;
+                border:none;
+                  td.stepIcons{
+                      width:91px !important;
+                  }
+                  td.stepIcons i {
+                      padding-left:15px;
+                  }
+            }
+        }    
+    }   
+}
