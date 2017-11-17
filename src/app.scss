@@ -1,6 +1,5 @@
 $bodyBg:#f9f9f8; 
 $standardPadding: 10px;
-$largePadding: 20px;
 *{
     margin: 0;
     padding: 0;
@@ -52,13 +51,12 @@ body {
         }
         div.tableWrap{
             text-align: center;
-            padding:$largePadding;
 
             h2{
                 padding: $standardPadding;
             }
             table{
-                width:360px;
+                width:520px;
                 text-align: left;
                 margin: 0 auto;
                 border-collapse: collapse;
@@ -66,17 +64,11 @@ body {
                 th, td {
                     text-align: left; 
                     vertical-align: top; 
-                    border-bottom:1px solid #000;
                     border-collapse: collapse;
                     padding: 0.3em;
                   }
                   td.stepIcons{
                       width:71px;
-                  }
-                  caption {
-                    padding: 0.3em;
-                    color: #fff;
-                    background: #000;
                   }
                   
                   th {
@@ -186,20 +178,22 @@ i.goLower{
 
     transform: translate(1px,2px);
 }
-i.hint span, div.taskName span{
-    display: none;
-    padding: 2px 3px;
-    margin-left: 8px;
-    width: 100px;
-}
-i.hint:hover span,div.taskName:hover span{
-    display: inline;
-    position: absolute;
-    margin: 15px 0 0 5px;
-    background: #fff;
-    border: 1px solid #ddd;
-    color: #000000;
-    opacity:.8;
-    text-align: center;
+@media screen and (min-device-width: 860px){
+    i.hint span, div.taskName span{
+        display: none;
+        padding: 2px 3px;
+        margin-left: 8px;
+        width: 100px;
+    }
+    i.hint:hover span,div.taskName:hover span{
+        display: inline;
+        position: absolute;
+        margin: 15px 0 0 5px;
+        background: #fff;
+        border: 1px solid #ddd;
+        color: #000000;
+        opacity:.8;
+        text-align: center;
+    }
 }
 // END OF ICONS

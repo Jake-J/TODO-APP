@@ -1,5 +1,8 @@
 const  normalize = require('./normalize.scss'),
-        css = require('./app.scss');
+        css = require('./app.scss'),
+        media860 = require('./media860.scss'),
+        media520 = require('./media520.scss'),
+        media350 = require('./media350.scss');
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -21,7 +24,7 @@ class TODOapp extends React.Component {
         this.markAs = this.markAs.bind(this);
         this.removeStep = this.removeStep.bind(this);
         this.state = {
-            tasks:[['task0',[['first step'],[]]]],
+            tasks:[['task0',[['First step'],[]]]],
             counter:1,
             stepsTODO:[],
             stepsDone:[],
@@ -33,7 +36,7 @@ class TODOapp extends React.Component {
     ///////////////////////
     addTask(){
         const {counter} = this.state,
-              newTask = ['new task' + counter,[['first step'],[]]];
+              newTask = ['new task' + counter,[['First step'],[]]];
 
         this.setState({
             tasks:[...this.state.tasks,newTask],
