@@ -67,13 +67,13 @@ class TODOapp extends React.Component {
         let stepsTODO,stepsDone,taskName;
 
         if(entryNum){
-             stepsTODO = tasks[entryNum][1][0];
+            stepsTODO = tasks[entryNum][1][0];
             stepsDone = tasks[entryNum][1][1];
             taskName = tasks[entryNum][0];
 
             this.setState({
                 openedTask:taskName,
-                stepsTODO: stepsTODO,
+                stepsTODO:stepsTODO,
                 stepsDone:stepsDone
             })
         }else if(tasks[0]){
@@ -107,7 +107,9 @@ class TODOapp extends React.Component {
     ///////////////////////
     addStep(){
         const listTODO = this.state.stepsTODO;
-        
+        // stepsTODO = tasks[entryNum][1][0];
+        // stepsDone = tasks[entryNum][1][1];
+        // taskName = tasks[entryNum][0];           zobaczyc to
         listTODO.unshift("New Step");
         this.setState({
             stepsTODO:listTODO
@@ -122,7 +124,6 @@ class TODOapp extends React.Component {
                         stepsTODO:stepsTODO
                     })
                 } else if(isDone){
-                    console.log('to tutaj jestesmy teraz' + stepsDone[stepNum])
                     stepsDone[stepNum] = newName;
                     this.setState({
                         stepsDone:stepsDone
@@ -134,11 +135,9 @@ class TODOapp extends React.Component {
         const {stepsTODO,stepsDone} = this.state;
 
         if(!isDone){
-            console.log('helo brightness my friend');
             stepsDone.push(stepsTODO[stepNum]);
             stepsTODO.splice(stepNum,1);
         }else{
-            console.log('hi darkness my friend');
             stepsTODO.push(stepsDone[stepNum]);
             stepsDone.splice(stepNum,1);
         }
@@ -148,17 +147,32 @@ class TODOapp extends React.Component {
         })
     }
     removeStep(stepNum,isDone){
-        const {stepsTODO,stepsDone} = this.state;
-        
-              if(isDone){
-                this.setState({stepsDone:stepsDone.filter( (ignore,index) =>{
-                    return index !== stepNum;
-                })});
-              }else if(!isDone){
-                this.setState({stepsTODO:stepsTODO.filter( (ignore,index) =>{
-                    return index !== stepNum;
-                })});
-              }
+        let {stepsTODO,stepsDone,tasks,openedTask} = this.state,
+            tasksLength = tasks.length,
+            currentTaskIdx;
+
+        for(let i=0;i<tasksLength;i+=1){
+            if(tasks[i][0] == openedTask) {currentTaskIdx = i};
+        }
+        if(isDone){
+            stepsDone = stepsDone.filter( (ignore,index) =>{
+            return index !== stepNum;
+        })
+        tasks[currentTaskIdx][1][1] = stepsDone;
+        this.setState({
+            tasks:tasks,
+            stepsDone:stepsDone
+        });
+        }else if(!isDone){
+            stepsTODO = stepsTODO.filter((ignore,index) =>{
+                return index !== stepNum;
+            });  
+            tasks[currentTaskIdx][1][0] = stepsTODO;
+            this.setState({
+                stepsTODO:stepsTODO,
+                tasks: tasks
+            });
+        }
     }
     ////////////////////////////
     //LIFE CYCLE FUNCTIONALITY//
