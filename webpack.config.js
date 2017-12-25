@@ -40,7 +40,7 @@ devServer: {
 },
 plugins: [
     new HtmlWebpackPlugin({
-      title: 'new project',
+      title: 'TODO app',
       minify: {
           collapseWhitespace:true
       },

@@ -14,13 +14,12 @@ export class Step extends React.Component {
             editing:null
         }
     }
-    showEditor(){
-        
+    showEditor(e){
         if(!this.state.editing){
             this.setState({
                 editing:true
             })
-        }else{
+        } else if(!e.target.type){
             this.props.editCurrentStep(this.textInput.value,this.props.number,this.props.stepText,this.props.done);
             this.setState({
                 editing:null
